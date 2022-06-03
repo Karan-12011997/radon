@@ -1,5 +1,78 @@
 const express = require('express');
+const { send } = require('express/lib/response');
+const lodash=require("lodash")
 const router = express.Router();
+
+let players =
+   [
+       {
+           "name": "manish",
+           "dob": "1/1/1995",
+           "gender": "male",
+           "city": "jalandhar",
+           "sports": ["swimming"]
+               
+           
+       },
+       {
+           "name": "gopal",
+           "dob": "12/01/1197",
+           "gender": "male",
+           "city":"motihari",
+           "sports": ["football","cricket"]
+       },
+       
+       {
+        "name": "ram",
+        "dob": "1/1/1995",
+        "gender": "male",
+        "city": "ghorasahan",
+        "sports": ["swimming", "cricket","kabbadi"]
+            
+        
+    },
+    
+    {
+        "name": "raushan",
+        "dob": "1/1/1997",
+        "gender": "male",
+        "city": "patna",
+        "sports": ["swimming", "hockey","badminton","skating"]
+            
+        
+    },
+    
+    {
+        "name": "sita",
+        "dob": "1/1/1995",
+        "gender": "female",
+        "city": "indore",
+        "sports": ["cricket","badminton","cricket","kho-kho"]
+            
+        
+    },
+    ]
+    
+    router.post('/player-5',function(req,res){
+   let ele=req.body
+let ele2=ele.name
+   for (let i=0;i<players.length;i++){
+       if(ele2==players[i].name){
+           return res.send("this player is existed.")
+        }
+    }
+    players.push(ele)
+    res.send(players)
+});
+
+
+
+
+
+
+    
+
+
 
 router.get('/students/:name', function(req, res) {
     let studentName = req.params.name
