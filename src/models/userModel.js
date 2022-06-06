@@ -1,10 +1,25 @@
 const mongoose=require('mongoose');
 const bookSchema=new mongoose.Schema({
 
-    author:String,
-    book:String,
-    category:String,
-    year:Number
+    author:{
+        type:String,
+        required:true
+       
+    },
+    book:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    category:{
+        type:String,
+        required:true
+    },
+    year:{type:Number,
+        required:true
+    }
+        //createdAt
+        //modifiedAt
 
 },{ timespants:true});
 

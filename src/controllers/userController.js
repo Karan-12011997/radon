@@ -9,5 +9,5 @@ const dataDetails=async function(req,res){
     let allData =await userModel.find()
     res.send({msg:allData})
 }
-module.exports.dataDetails=dataDetails
-module.exports.dataSubmit=dataSubmit
+module.exports.dataDetails=dataDetails;
+module.exports.dataSubmit=dataSubmit;
