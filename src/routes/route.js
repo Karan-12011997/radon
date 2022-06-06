@@ -13,16 +13,16 @@ router.get('/bookDetails',userController.dataDetails)
 
 
 router.post ('/newBookEntry',bookController.entryBook);
-router.get ('newBookDetails',bookController.detailsBook);
-
-
-
-
-
-
-
+router.get ('/newBookDetails',bookController.detailsBook);
 
 module.exports = router;
+
+
+
+
+
+
+
 
 
 
