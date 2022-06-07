@@ -13,8 +13,9 @@ const bookListByNameAndAuthor=async function(req,res){
 };
 
 const bookPubishInYear=async function(req,res){
-    let data=req.body.publishYear
-    let allData=await bookModel.find({data}) 
+    let data=req.body
+    let allData=await bookModel.find(data)
+
     res.send({msg:allData})  
 };   
     
@@ -27,28 +28,17 @@ const bookParticular=async function(req,res){
  };
 
 const indianRupee=async function(req,res){
-    let data=await bookModel.find({"price.indianPrice":{ $in:["499RS","480RS"]}})
+    let data=await bookModel.find({"price.indianPrice":{ $in:["100RS","200RS","300RS"]}})
     res.send(data)
-};
-
+}; 
+   
 
     
 
 const bookRandom=async function(req,res){
-    let data=await bookModel.find({$or:[{stockAvailble:true},{$gt:{totalPages:500}}]})
+    let data=await bookModel.find({$or:[{stockAvailble:true},{totalPages:{$gt:500}}]})
     res.send(data)
-}
-    
-    
-    
-
-
-
-
-
-
-
-
+};
 
 
 module.exports.bookEntry=bookEntry;
@@ -56,7 +46,18 @@ module.exports.bookListByNameAndAuthor=bookListByNameAndAuthor;
 module.exports.bookPubishInYear=bookPubishInYear;
 module.exports.bookParticular=bookParticular;
 module.exports.indianRupee=indianRupee;
-// module.exports.bookRandom=bookRandom;
+module.exports.bookRandom=bookRandom;
+    
+    
+
+
+
+
+
+
+
+
+
 
 
 

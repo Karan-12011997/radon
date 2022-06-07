@@ -3,12 +3,12 @@ const bookSchema = new mongoose.Schema({
     authorName: String,
     bookName: { 
         type: String,
-        required: true,
+        required: true, 
         unique: true
     },
     price: {
         indianPrice: String,
-        europeanPrice: String 
+        europeanPrice: String   
     },
     publishYear: {
         type: Number,
